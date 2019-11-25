@@ -55,25 +55,38 @@ dr=webdriver.Firefox()
 # sleep(5)
 # dr.find_element_by_css_selector('#login_button').click()
 # sleep(3)
+# 进入qq首页
 dr.get('https://y.qq.com/')
-dr.find_element_by_xpath('/html/body/div[1]/div/ul[1]/li[2]/a').click()
-sleep(3)
-
-# dr.find_element_by_xpath('')
-# sleep(1)
-dr.find_element_by_xpath('/html/body/div[10]/div[1]/a').click()
 sleep(2)
-dr.switch_to.frame('mod_popup_mask')
+# 点击 我的音乐
+dr.find_element_by_xpath('/html/body/div[1]/div/ul[1]/li[2]/a').click()
+sleep(5)
+# 切换到白色框架
 dr.switch_to.frame('divdialog_0')
-dr.switch_to.frame('popup_hd')
-dr.find_element_by_xpath('popup_close').click()
-sleep(3)
+sleep(2)
+# 切换到 关闭 框架
+dr.switch_to_frame('popup__hd')
+sleep(2)
+dr.switch_to_frame('')
+# 点击关闭按钮
+dr.find_element_by_xpath('/html/body/div[10]/div[1]/a/i[1]').click()
+sleep(2)
+# 点击 立即登录
+dr.find_element_by_xpath('/html/body/div[3]/div/div/a').click()
+sleep(2)
+# 切换到 登陆 框架
+dr.switch_to.frame('divdialog_0')
+sleep(2)
+# 点击 账号密码登陆
 dr.find_element_by_xpath('//*[@id="switcher_plogin"]').click()
-sleep(3)
+sleep(2)
+# 输入账号
 dr.find_element_by_id('u').send_keys('2424672489')
 sleep(5)
+# 输入密码
 dr.find_element_by_id('p').send_keys('LianQing0919*')
 sleep(5)
+# 点击登陆
 dr.find_element_by_css_selector('#login_button').click()
 sleep(3)
 
